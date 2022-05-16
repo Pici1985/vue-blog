@@ -25,17 +25,31 @@
     <p v-for="name in matchingNames" :key="name">
       {{ name }}
     </p>
+    <button @click="handleClick">Stop Watching</button>
   </div>
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 
 export default {
   name: 'HomeView',
   setup(){
     const search = ref('')
     const names = ref(['Bazsi','Ivi','Sophie','Hamish'])
+
+    const stopWatch = watch(search, () => {
+      console.log('watch function fired')
+    })
+
+    const stopEffect = watchEffect(() => {
+      console.log('watchEffect fired', search.value)  
+    })
+
+    const handleClick = () => {
+      stopWatch();
+      stopEffect();  
+    }
 
     const matchingNames = computed(() => {
       return names.value.filter((name) => name.includes(search.value)) 
@@ -44,7 +58,8 @@ export default {
     return {
       names,
       search,
-      matchingNames
+      matchingNames,
+      handleClick
     }
   }
   // refs vs reactive

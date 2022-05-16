@@ -4,5 +4,5 @@ import router from './router'
 
 createApp(App).use(router).mount('#app')
 
-// https://www.youtube.com/watch?v=V-kxBWcPJfo
-// 18:20nal
+// https://www.youtube.com/watch?v=0FwBjPeLqQ8
+// 00:01nal
