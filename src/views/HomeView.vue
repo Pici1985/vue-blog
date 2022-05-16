@@ -1,4 +1,5 @@
 <template>
+  <!-- demoing refs -->
   <!-- <div class="home">
     <h1>Home</h1>
     <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
@@ -6,7 +7,8 @@
     <button @click="age++">Increment</button>
     <input type="text" v-model="name">
   </div> -->
-  <div class="home">
+  <!-- demoing refs vs reactive -->
+  <!-- <div class="home">
     <h1>Home</h1>
     <h2>Refs</h2>
     <p>{{ userOne.name }} - {{ userOne.age}}</p>
@@ -14,29 +16,52 @@
     <h2>Reactive</h2>
     <p>{{ userTwo.name }} - {{ userTwo.age }}</p>
     <button @click="updateUserTwo">Click me</button>
+  </div> -->
+  <!-- computed properties -->
+  <div class="home">
+    <h1>Home</h1>
+    <input type="text" v-model="search">
+    <p>search -term - {{ search }}</p>
+    <p v-for="name in matchingNames" :key="name">
+      {{ name }}
+    </p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import { ref, reactive } from 'vue'
+import { computed, ref } from 'vue'
 
 export default {
   name: 'HomeView',
-  setup() {
-    const userOne = ref({ name: 'Bazsi', age: 30 })
-    const userTwo = reactive({ name: 'Ivi', age: 25 })  
+  setup(){
+    const search = ref('')
+    const names = ref(['Bazsi','Ivi','Sophie','Hamish'])
 
-    const updateUserOne = () => {
-      userOne.value.age = 40
+    const matchingNames = computed(() => {
+      return names.value.filter((name) => name.includes(search.value)) 
+    })
+
+    return {
+      names,
+      search,
+      matchingNames
     }
-    
-    const updateUserTwo = () => {
-      userTwo.age = 30
-    }
-    
-    return { userOne, updateUserOne, userTwo, updateUserTwo }
   }
+  // refs vs reactive
+  // setup() {
+  //   const userOne = ref({ name: 'Bazsi', age: 30 })
+  //   const userTwo = reactive({ name: 'Ivi', age: 25 })  
+
+  //   const updateUserOne = () => {
+  //     userOne.value.age = 40
+  //   }
+    
+  //   const updateUserTwo = () => {
+  //     userTwo.age = 30
+  //   }
+    
+  //   return { userOne, updateUserOne, userTwo, updateUserTwo }
+  // }
 
   //the values inside setup() are not reactive by default
   // setup(){
