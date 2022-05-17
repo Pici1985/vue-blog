@@ -16,7 +16,6 @@
 <script>
 import { ref } from '@vue/reactivity'
 
-
 export default {
     setup(){
         const posts = ref([])
@@ -34,7 +33,7 @@ export default {
                 error.value = err.message
                 console.log(error.value)
             }
-        }    
+        }     
         
         load();
 

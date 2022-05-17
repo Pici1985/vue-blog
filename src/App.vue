@@ -3,7 +3,8 @@
     <router-link to="/"> Home </router-link> | 
     <router-link to="/about"> About </router-link> | 
     <router-link to="/hooks"> Hooks </router-link> |
-    <router-link to="/fetch"> Fetch </router-link> 
+    <router-link to="/fetch"> Fetch </router-link> |
+    <router-link to="/composable"> Composable </router-link> 
     <router-view></router-view>
   </div>
 </template>
