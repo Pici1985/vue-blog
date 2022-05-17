@@ -1,10 +1,12 @@
 <template>
-  <div class="post-list">
+<div>
     <h1>Post - List</h1>
-    <div v-for="post in posts" :key="post.id">
-        <SinglePost :post="post" />
-    </div>   
-  </div>
+    <div class="post-list">
+      <div v-for="post in posts" :key="post.id">
+          <SinglePost :post="post" />
+      </div>   
+    </div>
+</div>
 </template>
 
 <script>

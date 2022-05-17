@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import HooksView from '../views/HooksView.vue'
 import FetchView from '../views/FetchView.vue'
 import ComposableView from '../views/ComposableView.vue'
+import DetailsView from '../views/DetailsView.vue'
 
 const routes = [
   {
@@ -30,6 +31,12 @@ const routes = [
     path: '/composable',
     name: 'composable',
     component: ComposableView
+  },
+  {
+    path: '/posts/:id',
+    name: 'details',
+    component: DetailsView,
+    props: true
   },
 ]
 
