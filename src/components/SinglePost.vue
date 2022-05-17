@@ -1,9 +1,11 @@
 <template>
     <div class="post">
         <h3>{{ post.title }}</h3>
-        <p @click="handleClick">{{ snippet }}</p>
+        <p class="snippet" @click="handleClick">{{ snippet }}</p>
         <p v-if="showPostBody">{{ post.body }}</p>
-
+        <span v-for="tag in post.tags" :key="tag">
+            #{{ tag }}
+        </span>
     </div>
 </template>
 
@@ -33,5 +35,7 @@ export default {
 </script>
 
 <style>
-
+    .snippet {
+        cursor: pointer;
+    }
 </style>

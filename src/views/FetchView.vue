@@ -6,7 +6,9 @@
             <div v-for="post in posts" :key="post">
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.body }}</p>
-                <p>{{ post.tags }}</p>
+                <span v-for="tag in post.tags" :key="tag">
+                    #{{ tag }}
+                </span>
             </div>
         </div>
         <div v-else>Loading...</div>
