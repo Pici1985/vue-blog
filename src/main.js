@@ -5,4 +5,4 @@ import router from './router'
 createApp(App).use(router).mount('#app')
 
 // https://www.youtube.com/watch?v=0FwBjPeLqQ8
-// 06:19nel
+// 22:26nel valami szar van az Error objecttel!!!! 
